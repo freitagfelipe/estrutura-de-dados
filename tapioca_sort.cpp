@@ -2,14 +2,12 @@
 #include <algorithm>
 #include <vector>
 
-int find_max_element_index(std::vector<int>::iterator &&begin, std::vector<int>::iterator &&end) {
-    int index {0}, i {0}, greatest {*begin};
+int find_max_element_index(const std::vector<int> &v, int end) {
+    int greatest {v.at(0)}, index {0};
 
-    while (begin != end) {
-        ++i;
-
-        if (*(++begin) >= greatest) {
-            greatest = *begin;
+    for (int i {1}; i < end; ++i) {
+        if (greatest < v.at(i)) {
+            greatest = v.at(i);
             index = i;
         }
     }
@@ -22,7 +20,7 @@ std::vector<int> tapioca_sort(std::vector<int> &v) {
     int how_many_sortered {0};
 
     while (how_many_sortered != int(v.size())) {
-        int greatest_number_index = find_max_element_index(v.begin(), v.end() - how_many_sortered - 1);
+        int greatest_number_index = find_max_element_index(v, v.size() - how_many_sortered);
 
         if (greatest_number_index + 1 == int(v.size()) - how_many_sortered) {
             ++how_many_sortered;
@@ -55,7 +53,7 @@ int main() {
 
     int count {0};
 
-    for (const int number : tapioca_sort(v)) {
+    for (const int &number : tapioca_sort(v)) {
         if (count++ > 0) {
             std::cout << " ";
         }
