@@ -7,7 +7,7 @@ void show(const std::vector<std::string> &matriz) {
     }
 }
 
-void tocarFogo(std::vector<std::string> &matriz, int lfire, int cfire) {
+void tocar_fogo(std::vector<std::string> &matriz, int lfire, int cfire) {
     int nl = matriz.size();
     int nc = matriz.at(0).size();
 
@@ -15,19 +15,19 @@ void tocarFogo(std::vector<std::string> &matriz, int lfire, int cfire) {
         matriz.at(lfire).at(cfire) = 'o';
 
         if (lfire + 1 < nl) {
-            tocarFogo(matriz, lfire + 1, cfire);
+            tocar_fogo(matriz, lfire + 1, cfire);
         }
 
         if (lfire - 1 >= 0) {
-            tocarFogo(matriz, lfire - 1, cfire);
+            tocar_fogo(matriz, lfire - 1, cfire);
         }
 
         if (cfire + 1 < nc) {
-            tocarFogo(matriz, lfire, cfire + 1);
+            tocar_fogo(matriz, lfire, cfire + 1);
         }
 
         if (cfire - 1 >= 0) {
-            tocarFogo(matriz, lfire, cfire - 1);
+            tocar_fogo(matriz, lfire, cfire - 1);
         }
     }
 }
@@ -47,7 +47,7 @@ int main() {
         matriz.push_back(line);
     }
 
-    tocarFogo(matriz, lfire, cfire);
+    tocar_fogo(matriz, lfire, cfire);
     show(matriz);
 
     return 0;

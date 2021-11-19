@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-int bubblesort(std::vector<int> &v) {
+int bubble_sort(std::vector<int> &v) {
     int count {0};
     bool swapped {true};
 
@@ -31,7 +31,7 @@ int main() {
         std::cin >> v.at(i);
     }
 
-    std::cout << bubblesort(v) << std::endl;
+    std::cout << bubble_sort(v) << std::endl;
 
     return 0;
 }

@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-void sort(std::vector<int> &v) {
+void insertion_sort(std::vector<int> &v) {
     for (int i {1}; i < int(v.size()); ++i) {
         int key {v.at(i)};
         int j {i - 1};
@@ -17,8 +17,8 @@ void sort(std::vector<int> &v) {
 }
 
 void vacina(std::vector<int> &patients, std::vector<int> &vaccines) {
-    sort(patients);
-    sort(vaccines);
+    insertion_sort(patients);
+    insertion_sort(vaccines);
 
     for (int i {0}; i < int(patients.size()); ++i) {
         if (patients.at(i) > vaccines.at(i)) {
