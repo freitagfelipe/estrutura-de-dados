@@ -69,7 +69,7 @@ int main() {
     std::string line;
     std::vector<int> v;
 
-    getline(std::cin, line);
+    std::getline(std::cin, line);
 
     std::stringstream ss(line);
 
