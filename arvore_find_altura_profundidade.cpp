@@ -84,9 +84,8 @@ private:
         }
 
         Node *left {this->find(node->left, data)};
-        Node *right {this->find(node->right, data)};
 
-        return left != nullptr ? left : right;
+        return left != nullptr ? left : this->find(node->right, data);
     }
 
     int get_profundidade(Node *current_node, Node *destiny) {
